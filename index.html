@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para o amor da minha vida 💖</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(#ffb6d9, #ffe6f4, #ffc5e5);
+  color: #ff1493;
+  font-family: "Comic Sans MS", cursive;
+  text-align: center;
+}
+
+main {
+  width: min(92%, 650px);
+  margin: 35px auto;
+  padding: 25px 18px;
+  background: #fff0fa;
+  border: 5px ridge #ff69b4;
+  box-shadow: 0 0 25px #ff00a8;
+}
+
+h1 {
+  font-size: clamp(27px, 6vw, 42px);
+  text-shadow: 2px 2px white, 0 0 12px #ff1493;
+  animation: pulse 1s infinite alternate;
+}
+
+p { line-height: 1.8; }
+
+.gif {
+  width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+button {
+  display: block;
+  margin: 25px auto;
+  padding: 16px 22px;
+  color: white;
+  background: linear-gradient(#ff69b4, #ff1493);
+  border: 4px outset #ffb6d9;
+  border-radius: 18px;
+  font: bold 18px "Comic Sans MS", cursive;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff69b4;
+}
+
+button:hover { transform: scale(1.06); }
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ff1493;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.marquee span {
+  display: inline-block;
+  animation: scroll 10s linear infinite;
+}
+
+#surprise { display: none; }
+
+#surprise img.voucher {
+  width: 100%;
+  height: auto;
+  border: 4px dashed hotpink;
+  margin-top: 15px;
+}
+
+.floating {
+  position: fixed;
+  bottom: -50px;
+  pointer-events: none;
+  animation: floatUp 7s linear infinite;
+  z-index: 2;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) rotate(0deg); opacity: 1; }
+  to { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<main>
+  <div class="marquee">
+    <span>💖💕💗 EU AMO-TE MUITOOOO 💗💕💖✨💘💞</span>
+  </div>
+
+  <div id="welcome">
+    <img class="gif"
+      src="https://media.tenor.com/2roX3uxz_68AAAAC/cat-love.gif"
+      alt="Gatinho apaixonado">
+
+    <img class="gif"
+      src="https://media.tenor.com/7hV6N0YQ6bAAAAAC/hearts-love.gif"
+      alt="Corações românticos">
+
+    <h1>💖 OIIII, MEU AMOR 💖</h1>
+
+    <p>
+      ✨ Fiz uma coisinha muito especial para ti ✨
+      <br>
+      <blink>♥♥♥</blink>
+      Antes de abrires, quero que saibas que...
+      <br>
+      <strong>ÉS A MINHA PESSOA FAVORITA NO MUNDO INTEIRO!!!</strong>
+      <br>
+      💕🥹💋💕
+    </p>
+
+    <img class="gif"
+      src="https://media.tenor.com/images/5b4c2c0d6d5d2c6f5d8f4d7f5d8f4d7f/tenor.gif"
+      alt="Brilhos românticos">
+
+    <p>🌹 Preparado para a tua surpresa, bebé??? 🌹</p>
+
+    <button onclick="abrirSurpresa()">
+      💝 CLICA AQUI, MEU AMOR 💝
+    </button>
+
+    <p>💗💗💗 SÓ PARA O NAMORADO MAIS LINDO DO MUNDO 💗💗💗</p>
+  </div>
+
+  <div id="surprise">
+    <h1>AAAAAA SURPRESAAAA!!! 💖</h1>
+
+    <p>
+      🎁 TENHO UMA PRENDA PARA TI!!! 🎁
+      <br>
+      Porque mereces tudo de mais bonito nesta vida.
+      <br>
+      Amo-te infinitamente, meu amor! 💋💗
+    </p>
+
+    <img class="voucher"
+      src="voucher.jpg"
+      alt="O teu voucher de presente">
+
+    <p>💕 Espero que gostes!!! 💕</p>
+    <p>💋💋💋 PARA SEMPRE TEU AMOR 💋💋💋</p>
+  </div>
+
+  <div class="marquee">
+    <span>✨💘 FOREVER AND EVER 💘✨ TE AMO ATÉ À LUA E VOLTA 🌙💖</span>
+  </div>
+</main>
+
+<script>
+function abrirSurpresa() {
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("surprise").style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+const emojis = ["💖", "💕", "💗", "✨", "💘", "💝"];
+
+function criarCoracao() {
+  const el = document.createElement("div");
+  el.className = "floating";
+  el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.fontSize = (20 + Math.random() * 25) + "px";
+  el.style.animationDuration = (4 + Math.random() * 5) + "s";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 9000);
+}
+
+setInterval(criarCoracao, 350);
+</script>
+
+</body>
+</html>
